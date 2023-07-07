@@ -8,7 +8,7 @@ def user_inputs():
     parse_object.add_argument("-ip","--ipaddress",dest="ip_address",help="new ip address")
     parse_object.add_argument("-n","--netmask",dest="netmask",help="new netmask")
 
-    return parse_object.parse_args() #tupple returns
+    return parse_object.parse_args() #tuple returns
 
 def change_ip_address(user_interface,user_ip,user_netmask):
     subprocess.call(["ifconfig",user_interface,"down"])
@@ -29,7 +29,7 @@ print("IP changer started")
 user_input = user_inputs()
 change_ip_address(user_input.interface,user_input.ip_address,user_input.netmask)
 
-last_ip_netmask = control_new_ip(user_input.interface) #last_ip_netmask is a tupple
+last_ip_netmask = control_new_ip(user_input.interface) #last_ip_netmask is a tuple
 
 if last_ip_netmask[0] == user_input.ip_address and last_ip_netmask[1] == user_input.netmask:
     print("Success!")
